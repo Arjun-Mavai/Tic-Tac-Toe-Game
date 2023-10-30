@@ -1,9 +1,8 @@
 // Importing required React hooks
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 // Main App functional component
 export default function App() {
-
   // State for the squares on the board
   // Initialize an array of length 9 filled with nulls, representing the 9 squares
   const [squares, setSquares] = useState(Array(9).fill(null));
@@ -19,10 +18,10 @@ export default function App() {
 
     // Copy the existing squares array to a new array
     const newSquares = [...squares];
-    
+
     // Update the clicked square with either 'X' or 'O'
-    newSquares[index] = isXnext ? 'X' : 'O';
-    
+    newSquares[index] = isXnext ? "X" : "O";
+
     // Update state to reflect the new board and toggle the turn
     setSquares(newSquares);
     setIsXnext(!isXnext);
@@ -48,7 +47,11 @@ export default function App() {
     // Loop through all winning combinations to check for a winner
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
-      if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      if (
+        squares[a] &&
+        squares[a] === squares[b] &&
+        squares[a] === squares[c]
+      ) {
         return squares[a];
       }
     }
@@ -59,13 +62,13 @@ export default function App() {
 
   // Render the JSX
   return (
-    <div style={{ background: '' }}>
+    <div style={{ background: "" }}>
       <div
         className="gameBoard"
         style={{
-          display: 'grid',
-          gridTemplateColumns: '60px 60px 60px',
-          margin: '80px',
+          display: "grid",
+          gridTemplateColumns: "60px 60px 60px",
+          margin: "80px",
         }}
       >
         {/* Loop through squares to render each square */}
@@ -74,10 +77,10 @@ export default function App() {
             className="board"
             key={index}
             style={{
-              width: '60px',
-              height: '60px',
-              border: '2px solid black',
-              boxShadow: '2px 8px 15px rgba(120 ,234,243,0.9)',
+              width: "60px",
+              height: "60px",
+              border: "2px solid black",
+              boxShadow: "2px 8px 15px rgba(120 ,234,243,0.9)",
             }}
             onClick={() => handleClick(index)}
           >
@@ -87,7 +90,7 @@ export default function App() {
       </div>
       {/* Button to reset the game */}
       <button
-        style={{ marginLeft: '90px', border: '2px solid black' }}
+        style={{ marginLeft: "90px", border: "2px solid black" }}
         onClick={() => {
           // Reset all squares and start from X
           setSquares(Array(9).fill(null));
@@ -98,7 +101,7 @@ export default function App() {
       </button>
       <div
         className="status"
-        style={{ fontFamily: 'sans-serif', fontSize: '36px' }}
+        style={{ fontFamily: "sans-serif", fontSize: "36px" }}
       >
         {/* Display the winner if there is one */}
         {winner ? (
@@ -106,22 +109,22 @@ export default function App() {
             <p>
               winner {winner}
               <img
-                src="/congrat.gif"
+                src="/aanya.jpeg"
                 width="250px"
                 height="250px"
                 style={{
-                  position: 'absolute',
-                  top: '30%',
-                  left: '50%',
-                  transform: 'translate(-50%,-50%)',
-                  borderRadius: '15px',
+                  position: "absolute",
+                  top: "30%",
+                  left: "50%",
+                  transform: "translate(-50%,-50%)",
+                  borderRadius: "15px",
                 }}
               />
             </p>
           </>
         ) : (
           // If no winner yet, display who is next
-          `Next Player ${isXnext ? 'X' : 'O'}`
+          `Next Player ${isXnext ? "X" : "O"}`
         )}
       </div>
     </div>
