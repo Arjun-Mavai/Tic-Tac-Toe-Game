@@ -109,7 +109,7 @@ export default function App() {
             <p>
               winner {winner}
               <img
-                src="/aanya.jpeg"
+                src="/congrat.gif"
                 width="250px"
                 height="250px"
                 style={{
